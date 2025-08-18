@@ -18,7 +18,8 @@ const page = {
 		nextDay: document.querySelector(".habbit__day")
 	},
 	popup: {
-		index: document.getElementById("add-habbit-popup")
+		index: document.getElementById("add-habbit-popup"),
+		iconField: document.querySelector("popup__form input[name='icon']")
 	}
 };
 
@@ -147,6 +148,14 @@ function deleteDay(index) {
 	});
 	rerender(globalActiveHabbitId);
 	saveData();
+}
+
+/* working with habbits */
+function setIcon(context, icon) {
+	page.popup.iconField.value = icon;
+	const iconActive = document.querySelector(".icon.icon_active");
+	iconActive.classList.remove("icon_active");
+	context.classList.add("icon_active");
 }
 
 /* init */
